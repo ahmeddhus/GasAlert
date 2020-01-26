@@ -12,7 +12,7 @@
         android:gravity="center"
         android:keepScreenOn="true"
         android:text="@string/welcome"
-        android:textColor="#33b5e5"
+        android:textColor="#fff"
         android:textSize="50sp"
         android:textStyle="bold" />
 
@@ -31,7 +31,12 @@
             android:layout_gravity="bottom|center_horizontal"
             android:background="@color/black_overlay"
             android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:paddingLeft="4dp"
+            android:minWidth="40dp"
+            android:paddingRight="4dp"
+            android:paddingTop="8dp"
+            android:minHeight="32dp"
+            android:paddingBottom="8dp">
 
             <Button
                 android:id="@+id/connectBluetooth"
@@ -50,7 +55,7 @@
             android:paddingTop="33dp"
             android:baselineAlignBottom="false"
             android:src="@drawable/logo"
-            android:contentDescription="Logo App Homy" />
+            android:contentDescription="@string/logo_app_homy" />
 
     </FrameLayout>
 

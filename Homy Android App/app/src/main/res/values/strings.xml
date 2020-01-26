@@ -34,4 +34,14 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
     <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="logo_app_homy">Logo App Homy</string>
+    <string name="scan_and_connect_bluetooth">Scan and Connect Bluetooth</string>
+    <string name="status">Status:</string>
+    <string name="status_">Status…</string>
+    <string name="on">On</string>
+    <string name="paired">Paired</string>
+    <string name="off">Off</string>
+    <string name="scan">scan</string>
+    <string name="next_btn">Next Button</string>
+    <string name="sensor">Sensor</string>
 </resources>
