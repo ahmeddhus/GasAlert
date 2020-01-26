@@ -44,4 +44,6 @@
     <string name="scan">scan</string>
     <string name="next_btn">Next Button</string>
     <string name="sensor">Sensor</string>
+    <string name="close_alarm">Close Alarm</string>
+    <string name="gas_alarm">Gas Alarm!!</string>
 </resources>
