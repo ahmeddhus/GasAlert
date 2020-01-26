@@ -7,15 +7,16 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 public class RingingActivity extends AppCompatActivity {
 
-    private Button close_alarm;
     private MediaPlayer mp;
     private static final String CHANNEL_ID = "1";
 
@@ -29,7 +30,6 @@ public class RingingActivity extends AppCompatActivity {
     }
 
     private void init() {
-        close_alarm = findViewById(R.id.close_ringing);
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
         mp = MediaPlayer.create(getApplicationContext(), notification);
     }
@@ -37,18 +37,22 @@ public class RingingActivity extends AppCompatActivity {
     private void actions() {
         mp.start();
         notificationCall();
+        vibration();
+    }
 
-        close_alarm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mp.stop();
-                mp.release();
-                finish();
+    private void vibration() {
 
-                Intent goToMain = new Intent(RingingActivity.this, MainActivity.class);
-                startActivity(goToMain);
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        if (v != null) {
+            // Vibrate for 500 milliseconds
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+            } else {
+                //deprecated in API 26
+                v.vibrate(500);
             }
-        });
+        }
     }
 
     public void notificationCall() {
@@ -65,5 +69,14 @@ public class RingingActivity extends AppCompatActivity {
         if (notificationManger != null) {
             notificationManger.notify(1, builder.build());
         }
+    }
+
+    public void closeAlarm(View view) {
+        mp.stop();
+        mp.release();
+        finish();
+
+        Intent goToMain = new Intent(RingingActivity.this, MainActivity.class);
+        startActivity(goToMain);
     }
 }

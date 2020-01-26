@@ -15,6 +15,7 @@ import android.widget.Button;
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
+
 public class FullscreenActivity extends AppCompatActivity {
     /**
      * Whether or not the system UI should be auto-hidden after
@@ -105,7 +106,7 @@ public class FullscreenActivity extends AppCompatActivity {
             }
         });
 
-        nxt = (Button) findViewById(R.id.connectBluetooth);
+        nxt = findViewById(R.id.connectBluetooth);
         nxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
